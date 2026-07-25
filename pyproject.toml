@@ -58,12 +58,14 @@ ignore = [
   "T201",   # Checks for print statements,
   "S106",   # Checks for potential uses of hardcoded passwords in function calls.
   "RUF012", # Checks for mutable default values in class attributes.
+  "CPY001", # Checks for the presence of copyright notices in source files.
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["ANN201", "S101"]
 "**/migrations/*.py" = ["ALL"]
 "core/settings.py" = ["S105", "F405", "F403"]
+"**/manage.py" = ["ALL"]
 
 [tool.ruff.format]
 quote-style = "double"
