@@ -30,3 +30,7 @@ wheels/
 .pyrightcodestyle
 .mypy_cache/
 .pytest_cache/
+
+# Databases
+*.db
+*.sqlite3
