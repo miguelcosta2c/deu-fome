@@ -6,7 +6,7 @@ readme = "README.md"
 license = "MIT"
 authors = [{ name = "Miguel Costa", email = "miguelcosmecosta@email.com" }]
 requires-python = ">=3.13"
-dependencies = ["django>=5.2", "python-dotenv>=1.1.0"]
+dependencies = ["django>=6.0.7", "python-dotenv>=1.2.2"]
 
 # SECURITY: 7-day grace period against supply chain attacks (like in npm)
 [tool.uv]
@@ -16,7 +16,13 @@ exclude-newer = "7 days"
 # Homepage = "https://homepage.example.com"
 
 [dependency-groups]
-dev = ["ruff", "pyright", "pytest", "pytest-django", "pytest-xdist"]
+dev = [
+  "pyright>=1.1.411",
+  "pytest>=9.1.1",
+  "pytest-django>=4.12.0",
+  "pytest-xdist>=3.8.0",
+  "ruff>=0.15.22",
+]
 
 # ============================
 # Lint and formatting (Ruff)
@@ -76,6 +82,7 @@ pythonVersion = "3.13"
 include = ["core", "apps", "tests"]
 exclude = [
   "**/.*",
+  "**/.venv",
   "**/venv",
   "**/env",
   "**/node_modules",
