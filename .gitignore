@@ -34,3 +34,7 @@ wheels/
 # Databases
 *.db
 *.sqlite3
+
+# Django
+*.log
+media/

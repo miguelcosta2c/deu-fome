@@ -1,0 +1,14 @@
+{% extends "global/base.html" %}
+
+{% block title %}Receitas{% endblock title %}
+
+{% block content %}
+  <h1 class="title">Receitas</h1>
+  <ul class="recipe-list">
+    {% for recipe in recipes %}
+      {% include "recipes/components.html#recipe" %}
+    {% empty %}
+      <li>Nenhuma receita encontrada.</li>
+    {% endfor %}
+  </ul>
+{% endblock  %}

@@ -40,7 +40,7 @@ def validar_peso(campo_imagem: UploadedFile) -> None:
     # 1. VALIDAÇÃO DE PESO (TAMANHO DO ARQUIVO)
     # ==========================================
     peso_maximo_mb = 5
-    peso_minimo_kb = 10
+    peso_minimo_kb = 2
 
     tamanho_bytes = campo_imagem.size
 
@@ -58,14 +58,10 @@ def validar_peso(campo_imagem: UploadedFile) -> None:
 
 
 def validar_tipo(campo_imagem: UploadedFile) -> None:
-    # ==========================================
-    # 3. VALIDAÇÃO DE TIPO (EXTENSÃO DO ARQUIVO)
-    # ==========================================
-    tipos_permitidos = ["image/jpeg", "image/png", "image/gif"]
+    tipos_permitidos = {"JPEG", "PNG", "JPG", "WEBP"}
 
-    if campo_imagem.content_type not in tipos_permitidos:
-        msg = (
-            f"Tipo de arquivo inválido. "
-            f"Os tipos permitidos são: {', '.join(tipos_permitidos)}."
-        )
+    imagem = campo_imagem.name.split(".")[-1].upper()
+    if imagem not in tipos_permitidos:
+        tipos = ", ".join(tipos_permitidos)
+        msg = f"Tipo de arquivo inválido. Os tipos permitidos são: {tipos}."
         raise ValidationError(msg)

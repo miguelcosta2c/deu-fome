@@ -1,0 +1,27 @@
+{% load static %}
+{% partialdef recipe %}
+  <li class="recipe">
+    {% if recipe.image %}
+      <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
+    {% else %}
+      <img src="{% static 'global/images/placeholder.png' %}" alt="{{ recipe.title }}, sem imagem" class="recipe-image">
+    {% endif %}
+    <h3 class="recipe-title">{{ recipe.title }}</h3>
+    <p class="recipe-description">{{ recipe.description }}</p>
+    <div class="preparation">
+      <div class="preparation-time">
+        <span class="preparation-time-label">Tempo de preparo</span>
+        <span class="preparation-time-value">{{ recipe.preparation_time }} minutos</span>
+      </div>
+      <div class="servings">
+        <span class="servings-label">Rende</span>
+        <span class="servings-value">{{ recipe.servings }} porções</span>
+      </div>
+    </div>
+    <div class="recipe-detail">
+      <a href="{% url "recipes:recipe_detail" recipe.slug %}" class="recipe-detail-link">
+        Veja a receita
+      </a>
+    </div>
+  </li>
+{% endpartialdef recipe %}
