@@ -6,21 +6,23 @@
 {% block content %}
   <article class="detail-recipe">
 
+    <h1 class="detail-title">{{ recipe.title }}</h1>
+    <p class="recipe-date">Publicado em: {{ recipe.created_at|date:"d/m/Y à\s H:i:s" }}</p>
+    <div class="detail-author">
+      {% if recipe.author.profile_picture %}
+        <img src="{{ recipe.author.profile_picture.url }}" alt="{{ recipe.author.username }}" class="detail-author-picture">
+      {% else %}
+        <img src="{% static 'global/images/profile_placeholder.png' %}" alt="{{ recipe.author.username }}" class="detail-author-picture">
+      {% endif %}
+      <span class="detail-author-name">{{ recipe.author.username }}</span>
+    </div>
+    <p class="detail-description">{{ recipe.description }}</p>
+
     {% if recipe.image %}
       <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="detail-image">
     {% else %}
       <img src="{% static 'global/images/placeholder.png' %}" alt="{{ recipe.title }}, sem imagem" class="detail-image">
     {% endif %}
-    <h1 class="detail-title">{{ recipe.title }}</h1>
-
-    <div class="detail-author">
-      {% if recipe.author.profile_picture %}
-        <img src="{{ recipe.author.profile_picture.url }}" alt="{{ recipe.author.username }}" class="detail-author-picture">
-      {% endif %}
-      <span class="detail-author-name">{{ recipe.author.username }}</span>
-    </div>
-
-    <p class="detail-description">{{ recipe.description }}</p>
 
     <div class="detail-meta">
       <div class="detail-meta-item">

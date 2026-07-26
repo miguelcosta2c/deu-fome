@@ -1,6 +1,7 @@
 from typing import Any
 
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 
 from core.validators import validar_dimensoes, validar_peso, validar_tipo
@@ -65,3 +66,6 @@ class Recipe(models.Model):
             self.slug = slug
 
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self) -> str:
+        return reverse("recipes:recipe_detail", kwargs={"recipe_slug": self.slug})
