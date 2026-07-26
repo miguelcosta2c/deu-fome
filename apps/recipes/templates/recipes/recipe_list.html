@@ -3,7 +3,7 @@
 {% block title %}Receitas{% endblock title %}
 
 {% block content %}
-  <h1 class="title">Receitas</h1>
+  {% include "global/partials/_navbar.html" %}
   <ul class="recipe-list">
     {% for recipe in recipes %}
       {% include "recipes/components.html#recipe" %}

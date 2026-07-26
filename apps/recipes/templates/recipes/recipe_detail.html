@@ -4,6 +4,8 @@
 {% block title %}{{ recipe.title }} - Detalhes da Receita | DeuFome{% endblock title %}
 
 {% block content %}
+  {% include "global/partials/_navbar.html" %}
+
   <article class="detail-recipe">
 
     <h1 class="detail-title">{{ recipe.title }}</h1>

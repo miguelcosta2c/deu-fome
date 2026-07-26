@@ -1,0 +1,39 @@
+{% load static %}
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Navegação principal">
+    <a
+      class="navbar-brand"
+      href="{% url 'recipes:recipe_list' %}"
+      aria-label="Ir para a página inicial do DeuFome"
+    >
+      <img
+        class="navbar-logo"
+        src="{% static 'global/images/DeuFome.png' %}"
+        alt="DeuFome"
+      >
+    </a>
+
+    <ul class="navbar-menu">
+      <li class="navbar-item">
+        <a
+          class="navbar-link"
+          href="{% url 'recipes:recipe_list' %}"
+        >
+          Receitas
+        </a>
+      </li>
+
+      {% if request.user.is_staff %}
+        <li class="navbar-item">
+          <a
+            class="navbar-link"
+            href="{% url 'admin:index' %}"
+          >
+            Admin
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
