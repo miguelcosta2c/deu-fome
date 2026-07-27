@@ -5,16 +5,16 @@ from .models import Recipe
 
 
 def home_page(request: HttpRequest) -> HttpResponse:
-    return render(request, "global/home.html")
+    return render(request, "global/pages/home.html")
 
 
 def recipe_list(request: HttpRequest) -> HttpResponse:
     recipes = Recipe.objects.all()
     context = {"recipes": recipes}
-    return render(request, "recipes/recipe_list.html", context)
+    return render(request, "recipes/pages/recipe_list.html", context)
 
 
 def recipe_detail(request: HttpRequest, recipe_slug: str) -> HttpResponse:
     recipe = get_object_or_404(Recipe, slug=recipe_slug)
     context = {"recipe": recipe}
-    return render(request, "recipes/recipe_detail.html", context)
+    return render(request, "recipes/pages/recipe_detail.html", context)
