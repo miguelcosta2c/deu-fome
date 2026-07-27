@@ -12,7 +12,7 @@ def validar_dimensoes(campo_imagem: UploadedFile) -> None:
     largura_min, altura_min = 200, 200
 
     dimensoes = get_image_dimensions(campo_imagem)
-    if not dimensoes:
+    if not dimensoes or dimensoes[0] is None or dimensoes[1] is None:
         msg = "Não foi possível ler as dimensões da imagem."
         raise ValidationError(msg)
 

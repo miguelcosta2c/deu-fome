@@ -29,8 +29,20 @@ class Recipe(models.Model):
         help_text="Tempo de preparo em minutos",
         verbose_name="Tempo de preparo (minutos)",
     )
+    preparation_time_unit = models.CharField(
+        max_length=20,
+        default="minutos",
+        help_text="Unidade de tempo de preparo",
+        verbose_name="Unidade de tempo de preparo",
+    )
     servings = models.PositiveIntegerField(
         help_text="Número de porções", verbose_name="Porções"
+    )
+    servings_unit = models.CharField(
+        max_length=20,
+        default="porções",
+        help_text="Unidade de porções",
+        verbose_name="Unidade de porções",
     )
     image = models.ImageField(
         upload_to="recipe_images/",
