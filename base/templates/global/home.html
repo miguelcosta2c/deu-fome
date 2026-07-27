@@ -1,0 +1,13 @@
+{% extends "global/base.html" %}
+
+{% block title %}Página inicial | DeuFome{% endblock title %}
+
+{% block content %}
+  {% include "global/partials/_navbar.html" %}
+
+  <section class="home container">
+    <h1 class="home-title">As melhores receitas você encontrará aqui!</h1>
+    <p class="home-description">Descubra receitas deliciosas e compartilhe suas próprias criações culinárias.</p>
+    <a href="{% url 'recipes:recipe_list' %}" class="home-button">Ver Receitas</a>
+  </section>
+{% endblock content %}

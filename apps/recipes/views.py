@@ -4,7 +4,10 @@ from django.shortcuts import get_object_or_404, render
 from .models import Recipe
 
 
-# Create your views here.
+def home_page(request: HttpRequest) -> HttpResponse:
+    return render(request, "global/home.html")
+
+
 def recipe_list(request: HttpRequest) -> HttpResponse:
     recipes = Recipe.objects.all()
     context = {"recipes": recipes}

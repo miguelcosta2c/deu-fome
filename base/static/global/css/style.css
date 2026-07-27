@@ -367,3 +367,24 @@ body {
   outline: 2px solid #e85d04;
   outline-offset: 4px;
 }
+
+/* Home */
+
+.home {
+  text-align: center;
+}
+
+.home-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1a1a1a;
+  margin: 2rem 0;
+}
+
+/* Generic */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
